@@ -857,11 +857,11 @@ extension _XMLEncoder {
             }
             
             if value == Float.infinity {
-                return posInfString as NSObject
+                return NSString(string: posInfString) as NSObject
             } else if value == -Float.infinity {
-                return negInfString as NSObject
+                return NSString(string: negInfString) as NSObject
             } else {
-                return nanString as NSObject
+                return NSString(string: nanString) as NSObject
             }
         } else {
             return NSNumber(value: value)
@@ -875,11 +875,11 @@ extension _XMLEncoder {
             }
             
             if value == Double.infinity {
-                return posInfString as NSObject
+                return NSString(string: posInfString) as NSObject
             } else if value == -Double.infinity {
-                return negInfString as NSObject
+                return NSString(string: negInfString) as NSObject
             } else {
-                return nanString as NSObject
+                return NSString(string: nanString) as NSObject
             }
         } else {
             return NSNumber(value: value)
@@ -897,12 +897,12 @@ extension _XMLEncoder {
             return NSNumber(value: value.timeIntervalSince1970 * 1000.0)
         case .iso8601:
             if #available(macOS 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *) {
-                return _iso8601Formatter.string(from: value) as NSObject
+                return NSString(string: _iso8601Formatter.string(from: value)) as NSObject
             } else {
                 fatalError("ISO8601DateFormatter is unavailable on this platform.")
             }
         case .formatted(let formatter):
-            return formatter.string(from: value) as NSObject
+            return NSString(string: formatter.string(from: value)) as NSObject
         case .custom(let closure):
             let depth = self.storage.count
             try closure(value, self)
@@ -919,7 +919,7 @@ extension _XMLEncoder {
             try value.encode(to: self)
             return self.storage.popContainer()
         case .base64:
-            return value.base64EncodedString() as NSObject
+            return NSString(string: value.base64EncodedString()) as NSObject
         case .custom(let closure):
             let depth = self.storage.count
             try closure(value, self)

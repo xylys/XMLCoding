@@ -350,7 +350,7 @@ extension _XMLDecoder {
         
         let number = NSNumber(value: value)
         
-        guard number !== kCFBooleanTrue, number !== kCFBooleanFalse else {
+        guard number !== NSNumber(booleanLiteral: true), number !== NSNumber(booleanLiteral: false) else {
             throw DecodingError._typeMismatch(at: self.codingPath, expectation: type, reality: value)
         }
         
@@ -373,7 +373,7 @@ extension _XMLDecoder {
         
         let number = NSNumber(value: value)
         
-        guard number !== kCFBooleanTrue, number !== kCFBooleanFalse else {
+        guard number !== NSNumber(booleanLiteral: true), number !== NSNumber(booleanLiteral: false) else {
             throw DecodingError._typeMismatch(at: self.codingPath, expectation: type, reality: value)
         }
         
@@ -396,7 +396,7 @@ extension _XMLDecoder {
         
         let number = NSNumber(value: value)
         
-        guard number !== kCFBooleanTrue, number !== kCFBooleanFalse else {
+        guard number !== NSNumber(booleanLiteral: true), number !== NSNumber(booleanLiteral: false) else {
             throw DecodingError._typeMismatch(at: self.codingPath, expectation: type, reality: value)
         }
         
@@ -419,7 +419,7 @@ extension _XMLDecoder {
         
         let number = NSNumber(value: value)
         
-        guard number !== kCFBooleanTrue, number !== kCFBooleanFalse else {
+        guard number !== NSNumber(booleanLiteral: true), number !== NSNumber(booleanLiteral: false) else {
             throw DecodingError._typeMismatch(at: self.codingPath, expectation: type, reality: value)
         }
         
@@ -442,7 +442,7 @@ extension _XMLDecoder {
         
         let number = NSNumber(value: value)
         
-        guard number !== kCFBooleanTrue, number !== kCFBooleanFalse else {
+        guard number !== NSNumber(booleanLiteral: true), number !== NSNumber(booleanLiteral: false) else {
             throw DecodingError._typeMismatch(at: self.codingPath, expectation: type, reality: value)
         }
         
@@ -465,7 +465,7 @@ extension _XMLDecoder {
         
         let number = NSNumber(value: value)
         
-        guard number !== kCFBooleanTrue, number !== kCFBooleanFalse else {
+        guard number !== NSNumber(booleanLiteral: true), number !== NSNumber(booleanLiteral: false) else {
             throw DecodingError._typeMismatch(at: self.codingPath, expectation: type, reality: value)
         }
         
@@ -488,7 +488,7 @@ extension _XMLDecoder {
         
         let number = NSNumber(value: value)
         
-        guard number !== kCFBooleanTrue, number !== kCFBooleanFalse else {
+        guard number !== NSNumber(booleanLiteral: true), number !== NSNumber(booleanLiteral: false) else {
             throw DecodingError._typeMismatch(at: self.codingPath, expectation: type, reality: value)
         }
         
@@ -511,7 +511,7 @@ extension _XMLDecoder {
         
         let number = NSNumber(value: value)
         
-        guard number !== kCFBooleanTrue, number !== kCFBooleanFalse else {
+        guard number !== NSNumber(booleanLiteral: true), number !== NSNumber(booleanLiteral: false) else {
             throw DecodingError._typeMismatch(at: self.codingPath, expectation: type, reality: value)
         }
         
@@ -534,7 +534,7 @@ extension _XMLDecoder {
         
         let number = NSNumber(value: value)
         
-        guard number !== kCFBooleanTrue, number !== kCFBooleanFalse else {
+        guard number !== NSNumber(booleanLiteral: true), number !== NSNumber(booleanLiteral: false) else {
             throw DecodingError._typeMismatch(at: self.codingPath, expectation: type, reality: value)
         }
         
@@ -557,7 +557,7 @@ extension _XMLDecoder {
         
         let number = NSNumber(value: value)
         
-        guard number !== kCFBooleanTrue, number !== kCFBooleanFalse else {
+        guard number !== NSNumber(booleanLiteral: true), number !== NSNumber(booleanLiteral: false) else {
             throw DecodingError._typeMismatch(at: self.codingPath, expectation: type, reality: value)
         }
         
@@ -577,7 +577,7 @@ extension _XMLDecoder {
         if let value = Double(string) {
             let number = NSNumber(value: value)
             
-            guard number !== kCFBooleanTrue, number !== kCFBooleanFalse else {
+            guard number !== NSNumber(booleanLiteral: true), number !== NSNumber(booleanLiteral: false) else {
                 throw DecodingError._typeMismatch(at: self.codingPath, expectation: type, reality: value)
             }
             
@@ -605,9 +605,9 @@ extension _XMLDecoder {
         
         guard let string = value as? String else { return nil }
         
-        if let number = Decimal(string: string) as NSDecimalNumber? {
+        if let number = Decimal(string: string) as? NSDecimalNumber {
             
-            guard number !== kCFBooleanTrue, number !== kCFBooleanFalse else {
+            guard number !== NSNumber(booleanLiteral: true), number !== NSNumber(booleanLiteral: false) else {
                 throw DecodingError._typeMismatch(at: self.codingPath, expectation: type, reality: value)
             }
             
